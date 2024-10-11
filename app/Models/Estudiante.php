@@ -11,7 +11,7 @@ class Estudiante extends Model
 
     protected $guarded = [];
 
-    public function products (){
+    public function curso (){
         return $this->belongsToMany(Curso:: class);
     }
 }

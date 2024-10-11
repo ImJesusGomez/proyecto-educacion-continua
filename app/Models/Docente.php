@@ -11,7 +11,7 @@ class Docente extends Model
 
     protected $guarded = [];
 
-    public function products (){
+    public function curso (){
         return $this->hasMany(Curso:: class);
     }
 }

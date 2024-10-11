@@ -20,12 +20,13 @@ class CursoFactory extends Factory
         return [
             'nombre'=>fake()->catchPhrase(),
             'cupo_max'=>fake()->numberBetween(10,40),
-            'horario' => fake()->dateTimeBetween('next Monday', 'next Sunday')->setTime(fake()->numberBetween(9, 17), fake()->numberBetween(0, 59))->format('l H:i'), 
+            'horario' => fake()->date(), 
             'link'=>fake()->url(),
-            'duracion'=>fake()->dateTimeBetween('now','+3 month'),
-            'fecha_inicio' => fake()->date(),
-            'fecha_fin'=>fake()->date(),
-            'descricion'=>fake()->paragraph(),
+            'duracion'=>fake()->numberBetween(30, 50),
+            'fecha_inicio' => fake()->dateTimeBetween('-1 week', '+1 week'),
+            'fecha_fin'=>fake()->dateTimeBetween('+12 week', '+15 week'),
+            'descripcion'=>fake()->paragraph(),
+            'docente_id'=>fake()->numberBetween(1, 50),
         ];
     }
 }

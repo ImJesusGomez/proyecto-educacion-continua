@@ -2,9 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\Constancia;
+use App\Models\Estudiante;
+use App\Models\Docente;
+use App\Models\Curso;
+use App\Models\Recibo;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use PhpParser\Comment\Doc;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +19,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        //User::factory(10)->create();
+        Estudiante::factory(50)->create();
+        Docente::factory(50)->create();
+        Recibo::factory(50)->create();
+        Curso::factory(50)->create();
+        Constancia::factory(50)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('duracion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->string('descripcion');
+            $table->text('descripcion');
 
             $table->foreignId('docente_id')->constrained('docentes', 'id')->onDelete('cascade');
 

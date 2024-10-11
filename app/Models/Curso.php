@@ -9,6 +9,8 @@ class Curso extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function constancia()
     {
         return $this->hasMany(Constancia::class);

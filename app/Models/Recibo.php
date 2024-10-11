@@ -9,6 +9,8 @@ class Recibo extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function estudiante()
     {
         return $this->belongsTo(Estudiante::class);

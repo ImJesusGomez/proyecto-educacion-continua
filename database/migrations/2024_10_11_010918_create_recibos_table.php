@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estudiantes_tabla', function (Blueprint $table) {
+        Schema::create('recibos', function (Blueprint $table) {
             $table->id();
+            $table->integer('folio');
+            $table->date('fecha_vencimiento');
+            $table->float('monto', 8, 2);
+            $table->integer('referencia_1');
+            $table->integer('referencia_2');
 
-            $table->string('nombre');
-            $table->integer('expediente');
-            $table->string('carrera');
-            $table->integer('semestre');
-            $table->string('nip');
-            
+            $table->foreignId('estudiante_id')->constrained('estudiantes', 'id')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('estudiantes_tabla');
+        Schema::dropIfExists('recibos');
     }
 };

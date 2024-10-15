@@ -1,0 +1,162 @@
+/* Custom Properties */
+:root {
+    --fuenteTexto: "Poppins", sans-serif;
+    --colorBlanco: #fff;
+    --colorNegro: #000;
+    --colorAzulOscuro: #072d44;
+    --colorGris: #333333;
+    --colorTransparenteAzul: rgba(6, 68, 105, 0.8);
+    --colorTransparenteAzul2: rgba(87, 144, 171, 0.8);
+}
+
+/* Globales */
+body {
+    font-size: 62.5%;
+}
+
+html {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+label {
+    font-family: var(--fuenteTexto);
+}
+
+* {
+    margin: 0;
+}
+
+input {
+    border: none;
+    height: 100%;
+    outline: none;
+}
+
+input:focus {
+    border: none;
+}
+
+/* Utilidades */
+.contenedor {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    padding: 0 20px; /* Espaciado interno para evitar que el contenido toque los bordes */
+    width: 100%; /* Para que el contenedor se ajuste al ancho completo del viewport */
+    box-sizing: border-box; /* Incluye el padding en el ancho total del contenedor */
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30%;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login */
+.login_contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.left_contenedor {
+    background: linear-gradient(
+        var(--colorTransparenteAzul),
+        80%,
+        var(--colorTransparenteAzul2)
+    );
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    flex-direction: column;
+}
+
+.left_contenedor h1,
+p {
+    color: var(--colorBlanco);
+}
+
+.left_contenedor p {
+    font-size: 1.5rem;
+}
+
+.left_contenedor h1 {
+    font-size: 3rem;
+}
+
+.login_contenedor-right {
+    margin-top: 10rem;
+}
+
+.right_contenedor {
+    padding: 2rem;
+    flex-direction: column;
+}
+
+.right_contenedor img {
+    width: 8rem;
+    align-content: flex-start;
+    margin: 1rem;
+}
+
+.right_contenedor h2 {
+    font-size: 2rem;
+}
+
+.input_contenedor {
+    padding: 0.5rem;
+    border: 0.1rem solid var(--colorAzulOscuro);
+    border-radius: 1rem;
+    width: 16rem;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.input_contenedor svg {
+    margin-left: 0.5rem;
+}
+.right_contenedor button {
+    border: none;
+    border-radius: 0.6rem;
+    background-color: var(--colorAzulOscuro);
+    color: var(--colorBlanco);
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 2rem;
+    font-family: var(--fuenteTexto);
+    align-content: center;
+    font-weight: bold;
+}
+
+.right_contenedor p {
+    color: var(--colorGris);
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+}

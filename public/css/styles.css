@@ -83,6 +83,13 @@ input:focus {
     position: relative;
 }
 
+/* @media (max-width: 780px) {
+    .login_contenedor {
+        display: flex;
+        flex-direction: row;
+    }
+} */
+
 .left_contenedor {
     background: linear-gradient(
         var(--colorTransparenteAzul),
@@ -152,6 +159,11 @@ p {
     font-family: var(--fuenteTexto);
     align-content: center;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.right_contenedor button:hover {
+    background-color: var(--colorTransparenteAzul);
 }
 
 .right_contenedor p {

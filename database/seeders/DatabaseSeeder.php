@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Administrator;
 use App\Models\Constancia;
 use App\Models\Estudiante;
 use App\Models\Docente;
@@ -25,6 +26,12 @@ class DatabaseSeeder extends Seeder
         Recibo::factory(50)->create();
         Curso::factory(50)->create();
         Constancia::factory(50)->create();
+        
+        Administrator::factory()->create([
+          'username' => 'admin',
+          'email' => 'admin@gmail.com',
+          'password' => '12345',
+        ]);
 
 
         // User::factory()->create([

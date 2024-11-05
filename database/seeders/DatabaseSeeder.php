@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Administrativo;
 use App\Models\Constancia;
 use App\Models\Estudiante;
 use App\Models\Docente;
@@ -31,5 +32,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+        Administrativo::factory()->create([
+            'name' => 'admin',
+            'password' => 'qwerty123',
+        ]);
     }
 }

@@ -17,8 +17,10 @@ class DocenteFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre'=>fake()->name(),
-            'expediente'=>fake()->numberBetween(100000,999999),
+            'nombre' => fake()->name(),
+            'expediente' => fake()->numberBetween(100000, 999999),
+            'correo' => fake()->email(),
+            'telefono' => fake()->phoneNumber()
         ];
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('carrera');
             $table->integer('semestre');
             $table->string('nip');
+            $table->string('correo');
 
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('estudiantes_table');
+        Schema::dropIfExists('estudiantes');
     }
 };

@@ -38,5 +38,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'password' => 'qwerty123',
         ]);
+
+        Estudiante::factory()->create([
+            'expediente' => '319824',
+            'nip' => '12345678',
+        ]);
+
+        Docente::factory()->create([
+            'nombre' => 'Jorge Dennis Correa Tepetate',
+            'expediente' => '291961',
+            'nip' => '12345678',
+        ]);
     }
 }

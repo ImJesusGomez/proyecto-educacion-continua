@@ -19,6 +19,7 @@ class DocenteFactory extends Factory
         return [
             'nombre' => fake()->name(),
             'expediente' => fake()->numberBetween(100000, 999999),
+            'nip' => fake()->password(10, 10),
             'correo' => fake()->email(),
             'telefono' => fake()->phoneNumber()
         ];

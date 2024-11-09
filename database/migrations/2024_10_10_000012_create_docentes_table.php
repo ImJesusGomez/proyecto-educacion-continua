@@ -16,6 +16,7 @@ return new class extends Migration
 
             $table->string('nombre');
             $table->integer('expediente');
+            $table->string('nip');
             $table->string('correo');
             $table->string('telefono');
 

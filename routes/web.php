@@ -3,20 +3,40 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Constancia;
 
-Route::get('/home', function () {
+
+Route::middleware('guest')->group(function(){
+  Route::get('/home', function () {
     return view('welcome');
+  })->name('inicio');
+
+  Route::get('/', function () {
+      return view('welcome');
+  })->name('inicio');
+
+  Route::get('/login-estudiante', function(){
+    return view('estudiante-login');
+  })->name('estudiante-login');
+
+  Route::get('/login-docente', function(){
+    return view('docente-login');
+  })->name('docente-login');
+
+  Route::get('/login-administrativo', function(){
+    return view('administrativo-login');
+  })->name('administrativo-login');
 });
 
-Route::get('/data', function(){
-  $constancias = Constancia::with('estudiante', 'curso', 'docente')->get();
-  return $constancias;
-});
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+
+
+  Route::get('/menu-estudiante', function () {
+      return view('estudiante-dashboard');
+  })->name('estudiante-dashboard');
+
+  Route::get('/menu-docente', function () {
+      return view('docente-dashboard');
+  })->name('docente-dashboard');
+
+  Route::get('/menu-administrativo', function () {
+      return view('administrativo-dashboard');
+  })->name('administrativo-dashboard');
+

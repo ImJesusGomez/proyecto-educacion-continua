@@ -192,3 +192,76 @@ a {
     background-color: var(--colorTransparenteAzul);
     color: var(--colorBlanco);
 }
+
+@media (max-width: 768px) {
+    .login_contenedor-left {
+        display: none;
+    }
+    .mobile-contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        background-color: #f4f4f4; /* Fondo claro, puedes cambiarlo */
+        position: relative;
+    }
+
+    .login_contenedor-right {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 400px; /* Tamaño máximo para pantallas más grandes */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .right_contenedor {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #fff; /* Fondo blanco */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    .input_contenedor {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-left: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .underline {
+        color: #007bff;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

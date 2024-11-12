@@ -24,7 +24,7 @@ class Estudiante extends Component
 
           if (Auth::guard('estudiantes')->attempt($credentials)) {
               // Obtener el usuario autenticado
-              $estudiante = Auth::guard('docentes')->user();
+              $estudiante = Auth::guard('estudiantes')->user();
 
               return redirect()->route('estudiante-dashboard')->with('estudiante', $estudiante);
           } else {

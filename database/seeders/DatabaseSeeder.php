@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Estudiante::factory()->create([
+            'nombre' => 'Jorge Eduardo del Carmen Rodríguez',
             'expediente' => '319824',
             'nip' => '12345678',
         ]);

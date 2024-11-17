@@ -11,6 +11,7 @@ use App\Models\Recibo;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use PhpParser\Comment\Doc;
 
 class DatabaseSeeder extends Seeder
@@ -34,10 +35,17 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
+        // Administrativo::factory()->create([
+        //     'name' => 'admin',
+        //     'password' => 'qwerty123',
+        // ]);
+
         Administrativo::factory()->create([
             'name' => 'admin',
-            'password' => 'qwerty123',
+            'password' => Hash::make('qwerty123'), // Encripta la contraseña manualmente
         ]);
+
+
 
         Estudiante::factory()->create([
             'nombre' => 'Jorge Eduardo del Carmen Rodríguez',

@@ -14,14 +14,15 @@ class Estudiante extends Authenticatable
 
     protected $guarded = [];
 
-    public function curso (){
-        return $this->belongsToMany(Curso:: class);
+    public function curso()
+    {
+        return $this->belongsToMany(Curso::class);
     }
 
-    
+
     public function getAuthPassword()
     {
-      return $this->nip;
+        return $this->nip;
     }
 
     public function setNipAttribute($value)

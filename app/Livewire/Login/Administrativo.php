@@ -21,14 +21,5 @@ class Administrativo extends Component
       'name' => $this->name,
       'password' => $this->password,  // Usamos 'password' como el campo encriptado
     ];
-
-    if (Auth::guard('administrativos')->attempt($credentials)) {
-      // Obtener el usuario autenticado
-      $administrativo = Auth::guard('administrativos')->user();
-
-      return redirect()->route('administrativo-dashboard')->with('administrativo', $administrativo);
-    } else {
-      session()->flash('error', 'Credenciales incorrectas.');
-    }
   }
 }

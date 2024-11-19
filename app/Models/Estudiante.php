@@ -14,6 +14,8 @@ class Estudiante extends Authenticatable
 
     protected $guarded = [];
 
+    // protected $fillable = ['nombre', 'expediente', 'carrera', 'semestre', 'nip', 'correo'];
+
     public function curso()
     {
         return $this->belongsToMany(Curso::class);

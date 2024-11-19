@@ -40,6 +40,12 @@ Route::get('/menu-administrativo', function () {
   return view('administrativo-dashboard');
 })->name('administrativo-dashboard');
 
+
+
+// Route::get('/menu-administrativo/estudiantes', function () {
+//   return view('student');
+// })->name('administrativo-estudiantes');
+
 Route::get('/menu-administrativo/estudiantes', function () {
-  return view('livewire.student.admin-create-student');
-})->name('administrativo-student');
+  return view('student');
+})->name('administrativo-estudiantes');

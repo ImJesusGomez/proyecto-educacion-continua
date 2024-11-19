@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,5 +24,20 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('layouts.login', 'login-layout');
         Blade::component('layouts.menu', 'menu-layout');
+
+        // Este código hace que la variable $administrativo esté disponible en todas las vistas donde el admnistrativo este autenticado
+        View::composer('*', function ($view) {
+          $view->with('administrativo', Auth::guard('administrativos')->user());
+        });
+
+        // Este código hace que la variable $estudiante esté disponible en todas las vistas donde el estudiante este autenticado
+        View::composer('*', function ($view) {
+          $view->with('estudiante', Auth::guard('estudiantes')->user());
+        });
+
+        // Este código hace que la variable $docente esté disponible en todas las vistas donde el estudiante este autenticado
+        View::composer('*', function ($view) {
+          $view->with('docente', Auth::guard('docentes')->user());
+        });
     }
 }

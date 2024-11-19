@@ -1,20 +1,19 @@
-<x-menu-layout>
+<div>
 
-    <div>
-
-        {{-- <x-button wire:click="$set('mAdd', true)">
-            Agregar Nuevo Estudiante
-        </x-button> --}}
-
-        <x-button wire:click="$set('mAdd', true)">Agregar Nuevo Estudiante</x-button>
+    <div class="mt-8 px-8">
+        <h2 class="text-4xl text-slate-800">ESTUDIANTES</h2>
+        <x-button wire:click="set('mAdd', true)">Agregar Nuevo Estudiante</x-button>
 
 
         <input wire:model.live='search'type="text" class="form-control" placeholder="Buscar...">
 
 
-        @if ($mAdd)
-            <div class="mb-8 ml-5 flex justify-center">
-                <form wire:submit='save'>
+        <form wire:submit='save'>
+            <x-dialog-modal wire:model='mAdd'>
+                <x-slot name='title'>
+                    Crear Usuario
+                </x-slot>
+                <x-slot name='content'>
                     <x-label for='nombre' value="Nombre" />
                     <x-input name='nombre' wire:model='nombre' />
 
@@ -33,26 +32,19 @@
 
                     <x-label for='correo' value="Correo" />
                     <x-input name='correo' class="md-4" wire:model='correo' />
-
-                    <br>
-
-
-
+                </x-slot>
+                <x-slot name='footer'>
                     <x-danger-button wire:click="$set('mAdd', false)">Cancelar</x-danger-button>
-                    <x-button>Guardar</x-button>
-                    {{-- <x-button class="mt-2">Guardar</x-button> --}}
-                </form>
-            </div>
-        @endif
+                    <x-button type='submit'>Guardar</x-button>
+                </x-slot>
+            </x-dialog-modal>
+        </form>
 
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
             <table class="w-full text-sm text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
-                            ID
-                        </th>
                         <th scope="col" class="px-6 py-3">
                             Nombre
                         </th>
@@ -62,14 +54,17 @@
                         <th scope="col" class="px-6 py-3">
                             Carrera
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-4 py-3">
                             Semestre
                         </th>
-                        <th scope="col" class="px-6 py-2">
+                        {{-- <th scope="col" class="px-6 py-2">
                             Nip
-                        </th>
+                        </th> --}}
                         <th scope="col" class="px-6 py-2">
                             Correo
+                        </th>
+                        <th scope="col" class="px-6 py-2">
+                            Opciones
                         </th>
 
                     </tr>
@@ -78,10 +73,6 @@
                 @foreach ($students as $student)
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                         wire:key="{{ $student->id }}">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $student->id }}
-                        </th>
                         <td class="px-6 py-4">
                             {{ $student->nombre }}
                         </td>
@@ -94,9 +85,9 @@
                         <td class="px-6 py-4">
                             {{ $student->semestre }}
                         </td>
-                        <td class="px-6 py-4">
+                        {{-- <td class="px-6 py-4">
                             {{ $student->nip }}
-                        </td>
+                        </td> --}}
                         <td class="px-6 py-4">
                             {{ $student->correo }}
                         </td>
@@ -155,4 +146,4 @@
 
 
     </div>
-</x-menu-layout>
+</div>

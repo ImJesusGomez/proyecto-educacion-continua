@@ -8,20 +8,19 @@ use Livewire\WithPagination;
 
 class CreateStudent extends Component
 {
-
-    use WithPagination;
-
+  use WithPagination;
+  
     // public $students;
     public $nombre, $expediente, $carrera, $semestre, $nip, $correo;
     public $student;
     public $studentEdit = [
-        'id' => ',',
-        'nombre' => ',',
-        'expediente' => ',',
-        'carrera' => ',',
-        'semestre' => ',',
-        'nip' => ',',
-        'correo' => ',',
+        'id' => ' ',
+        'nombre' => ' ',
+        'expediente' => ' ',
+        'carrera' => ' ',
+        'semestre' => ' ',
+        'nip' => ' ',
+        'correo' => ' ',
     ];
 
     public $mEdit = false;
@@ -33,19 +32,15 @@ class CreateStudent extends Component
 
     // public function mount()
     // {
-    //     // Carga los estudiantes desde la base de datos
     //     $this->students = Estudiante::all();
     // }
-
-
-
 
     public function render()   //Funcion render->Todo lo que aparezca en mi lista, lo va a pintar con esta función
     {
         $students = Estudiante::where('nombre', 'like', '%' . $this->search . '%')
             ->orwhere('correo', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'desc')
-            ->paginate(5);
+            ->paginate(10);
         return view('livewire.admin.create-student', compact('students'));
     }
 
@@ -101,4 +96,5 @@ class CreateStudent extends Component
     {
         $student->delete();
     }
+
 }

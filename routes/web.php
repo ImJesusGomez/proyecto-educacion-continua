@@ -46,6 +46,6 @@ Route::get('/menu-administrativo', function () {
 //   return view('student');
 // })->name('administrativo-estudiantes');
 
-Route::get('/menu-administrativo/estudiantes', function () {
-  return view('student');
-})->name('administrativo-estudiantes');
+// Route::get('/menu-administrativo/estudiantes', function () {
+//   return view('student');
+// })->name('administrativo-estudiantes');

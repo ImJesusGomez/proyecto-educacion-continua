@@ -45,8 +45,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('qwerty123'), // Encripta la contraseña manualmente
         ]);
 
-
-
         Estudiante::factory()->create([
             'nombre' => 'Jorge Eduardo del Carmen Rodríguez',
             'expediente' => '319824',

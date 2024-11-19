@@ -50,5 +50,22 @@ class DatabaseSeeder extends Seeder
             'expediente' => '291961',
             'nip' => '12345678',
         ]);
+        Docente::factory()->create([
+            'nombre' => 'Prueba Docente',
+            'expediente' => '123456',
+            'nip' => '12345678',
+        ]);
+
+        Curso::factory()->create([
+            'nombre'=>'Taller del Roger',
+            'cupo_max'=>20,
+            'horario'=>fake()->dateTime(),
+            'link'=>'https://www.JoseJose.com',
+            'duracion'=> 40,
+            'fecha_inicio'=>fake()->date(),
+            'fecha_fin'=>fake()->date(),
+            'descripcion'=>'texto bien random',
+            'docente_id'=>51
+        ]);
     }
 }

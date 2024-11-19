@@ -34,7 +34,7 @@ Route::middleware('guest')->group(function(){
 
   Route::get('/menu-docente', function () {
       return view('docente-dashboard');
-  })->name('docente-dashboard');
+  })->middleware('auth:docentes')->name('docente-dashboard');
 
   Route::get('/menu-administrativo', function () {
       return view('administrativo-dashboard');

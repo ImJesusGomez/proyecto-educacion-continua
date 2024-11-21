@@ -42,4 +42,19 @@
             </div>
         </div>
     </section>
+    <!-- Modal de error de inicio de sesión -->
+    @if ($loginError)
+        <div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+            <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Error de inicio de sesión</h3>
+                <p class="text-gray-700 mb-4 text-base">Las credenciales ingresadas son incorrectas. Por favor,
+                    inténtalo
+                    de
+                    nuevo.</p>
+                <button wire:click="closeErrorModal" class="px-4 py-2 bg-blue-500 text-white rounded-md w-24 text-xs">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    @endif
 </div>

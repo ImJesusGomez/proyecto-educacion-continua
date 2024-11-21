@@ -16,8 +16,12 @@ class Curso extends Model
         return $this->hasMany(Constancia::class);
     }
 
-    public function curso()
+    public function docente()
     {
-        return $this->belongsToMany(Curso::class);
+        return $this->belongsTo(Docente::class);
+    }
+    public function estudiantes()
+    {
+        return $this->belongsToMany(Estudiante::class,  'estudiantes_cursos', 'curso_id', 'estudiante_id');
     }
 }

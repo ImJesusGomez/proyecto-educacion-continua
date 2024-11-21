@@ -1,8 +1,10 @@
 <?php
 
+use App\Livewire\Dashboard\Estudiante;
+use App\Livewire\Login\Estudiante as LoginEstudiante;
 use Illuminate\Support\Facades\Route;
 use App\Models\Constancia;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::middleware('guest')->group(function(){
   Route::get('/home', function () {
@@ -12,6 +14,7 @@ Route::middleware('guest')->group(function(){
   Route::get('/', function () {
       return view('welcome');
   })->name('inicio');
+
 
   Route::get('/login-estudiante', function(){
     return view('estudiante-login');
@@ -24,13 +27,15 @@ Route::middleware('guest')->group(function(){
   Route::get('/login-administrativo', function(){
     return view('administrativo-login');
   })->name('administrativo-login');
-});
+  });
 
 
 
-  Route::get('/menu-estudiante', function () {
-      return view('estudiante-dashboard');
-  })->name('estudiante-dashboard');
+ 
+  Route::get('/menu-estudiante', function(){
+    return view('estudiante-dashboard');
+    })->name('estudiante-dashboard');
+
 
   Route::get('/menu-docente', function () {
       return view('docente-dashboard');

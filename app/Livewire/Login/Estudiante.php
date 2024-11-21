@@ -9,6 +9,8 @@ class Estudiante extends Component
 {
 
     public $expediente, $nip;
+
+    public $loginError = false;
     
     public function render()
     {
@@ -28,8 +30,19 @@ class Estudiante extends Component
 
               return redirect()->route('estudiante-dashboard')->with('estudiante', $estudiante);
           } else {
-              session()->flash('error', 'Credenciales incorrectas.');
+                // Mostrar el modal de error
+                $this->loginError = true;
+
+                // Reiniciamos los valores
+                $this->reset('expediente', 'nip');
           }
       }
+
+    /**
+    * Función para cerrar el modal
+    */
+    public function closeErrorModal() {
+            $this->loginError = false;
+    }
 
 }

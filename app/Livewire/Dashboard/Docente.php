@@ -3,6 +3,7 @@
 namespace App\Livewire\Dashboard;
 
 use App\Models\Curso;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Docente extends Component
@@ -17,8 +18,17 @@ class Docente extends Component
     public $descripcion;
     public $docente_id;
 
+    public $id;
+    public $nombreD;
+    public $expediente;
+    public $correo;
+    public $telefono;
+
     public $mCreate = false;
     public $mEdit = false;
+    public $abrirPerfil = false;
+    public $abrirAjustes = false;
+    public $abrirAyuda = false;
     public $idEditable;
     public $categoryEdit = [
         'id' => '',
@@ -65,6 +75,23 @@ class Docente extends Component
 
     public function abrirF(){
         $this->mCreate = true;
+    }
+
+    public function abrirperfil(){
+        $this->abrirPerfil = true;
+    }
+    public function abrirajustes(){
+        $this->abrirAjustes = true;
+    }
+    public function abrirayuda(){
+        $this->abrirAyuda = true;
+    }
+
+    public function mount(){
+        $this->nombreD = Auth::user()->nombre;
+        $this->expediente = Auth::user()->expediente;
+        $this->correo = Auth::user()->correo;
+        $this->telefono = Auth::user()->telefono;
     }
 
     

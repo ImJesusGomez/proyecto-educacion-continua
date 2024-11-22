@@ -84,8 +84,7 @@
                             </td> --}}
                             <td class="px-6 py-4">
                                 <div class="flex justify-center items-center gap-2">
-                                    <x-button style="background: white"
-                                        wire:click='editar({{ $docente->id }})'>Editar</x-button>
+                                    <x-button wire:click='editar({{ $docente->id }})'>Editar</x-button>
                                     <x-danger-button
                                         wire:click='eliminar({{ $docente->id }})'>Eliminar</x-danger-button>
                                 </div>
@@ -100,27 +99,34 @@
             </div>
 
             @if ($mEdit)
-                <div class="bg-gray-800 bg-opacity-25 fixed inset-0">
-                    <div class="py-12">
-                        <div class="bg-white shadow rounded-lg p-6">
-                            <form class="max-w-sm mx-auto" wire:submit='update'>
-                                <div class="mb-4 flex justify-center"> <span>Editar Estudiante</span> </div>
-                                <x-label for='nombre' value="Nombre del Docente" />
-                                <x-input name='nombre' wire:model='docentedit.nombre' />
-                                {{-- Aquí me quedé en esta línea del formulario --}}
-                                <x-label for='expediente' value="Expediente" />
-                                <x-input name='expediente' class="md-4" wire:model='docenteEdit.expediente' />
+                <div class="bg-gray-800 bg-opacity-25 fixed inset-0 backdrop-blur-sm flex items-center justify-center">
+                    <div class="py-8 max-w-md w-full">
+                        <div class="bg-gray-900 shadow rounded-lg p-4">
+                            <!-- Contenedor con scrollbar -->
+                            <div class="max-w-md mx-auto overflow-y-auto max-h-[80vh]">
+                                <div class="mb-4 flex justify-center"> <span class="text-white">Editar Estudiante</span>
+                                </div>
+                                <form class="max-w-sm mx-auto" wire:submit='update'>
+                                    <x-label for='nombre' value="Nombre del Docente" />
+                                    <x-input name='nombre' wire:model='docenteEdit.nombre' class="w-full" />
+                                    {{-- Aquí me quedé en esta línea del formulario --}}
+                                    <x-label for='expediente' value="Expediente" />
+                                    <x-input name='expediente' class="md-4" wire:model='docenteEdit.expediente'
+                                        class="w-full" />
 
-                                <x-label for='correo' value="Correo" />
-                                <x-input name='correo' class="md-4" wire:model='docenteEdit.correo' />
+                                    <x-label for='correo' value="Correo" />
+                                    <x-input name='correo' class="md-4" wire:model='docenteEdit.correo'
+                                        class="w-full" />
 
-                                <x-label for='telefono' value="telefono" />
-                                <x-input name='telefono' class="md-4" wire:model='docenteEdit.telefono' />
-
-                                <x-danger-button class="mt-2"
-                                    wire:click="set('mEdit',false)">Cancelar</x-danger-button>
-                                <x-button class="mt-2">Actualizar</x-button>
-                            </form>
+                                    <x-label for='telefono' value="telefono" />
+                                    <x-input name='telefono' class="md-4" wire:model='docenteEdit.telefono'
+                                        class="w-full" />
+                                    <br>
+                                    <x-danger-button class="mt-2"
+                                        wire:click="set('mEdit',false)">Cancelar</x-danger-button>
+                                    <x-button class="mt-2">Actualizar</x-button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

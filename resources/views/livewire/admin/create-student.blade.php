@@ -93,8 +93,7 @@
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex justify-center items-center gap-2">
-                                <x-button style="background: white"
-                                    wire:click='editar({{ $student->id }})'>Editar</x-button>
+                                <x-button wire:click='editar({{ $student->id }})'>Editar</x-button>
                                 <x-danger-button wire:click='eliminar({{ $student->id }})'>Eliminar</x-danger-button>
                             </div>
                         </td>
@@ -110,36 +109,44 @@
 
 
         @if ($mEdit)
-            <div class="bg-gray-800 bg-opacity-25 fixed inset-0">
-                <div class="py-12">
-                    <div class="bg-white shadow rounded-lg p-6">
-                        <form class="max-w-sm mx-auto" wire:submit='update'>
-                            <div class="mb-4 flex justify-center"> <span>Editar Estudiante</span> </div>
-                            <x-label for='nombre' value="Nombre del Estudiante" />
-                            <x-input name='nombre' wire:model='studentEdit.nombre' />
-                            {{-- Aquí me quedé en esta línea del formulario --}}
-                            <x-label for='expediente' value="Expediente" />
-                            <x-input name='expediente' class="md-4" wire:model='studentEdit.expediente' />
+            <div class="bg-gray-800 bg-opacity-25 fixed inset-0 backdrop-blur-sm flex items-center justify-center">
+                <div class="py-8 max-w-md w-full">
+                    <div class="bg-gray-900 shadow rounded-lg p-4">
+                        <!-- Contenedor con scrollbar -->
+                        <div class="max-w-md mx-auto overflow-y-auto max-h-[80vh]">
+                            <span class="flex text-2xl text-white font-bold mb-4 ml-4">
+                                Editar Docente
+                            </span>
+                            <form class="max-w-sm mx-auto" wire:submit='update'>
+                                <x-label for='nombre' value="Nombre del Estudiante" />
+                                <x-input name='nombre' wire:model='studentEdit.nombre' class="w-full" />
+                                {{-- Aquí me quedé en esta línea del formulario --}}
+                                <x-label for='expediente' value="Expediente" />
+                                <x-input name='expediente' class="md-4" wire:model='studentEdit.expediente'
+                                    class="w-full" />
 
-                            <x-label for='carrera' value="Carrera" />
-                            <x-input name='carrera' class="md-4" wire:model='studentEdit.carrera' />
+                                <x-label for='carrera' value="Carrera" />
+                                <x-input name='carrera' class="md-4" wire:model='studentEdit.carrera'
+                                    class="w-full" />
 
-                            <x-label for='semestre' value="Semestre" />
-                            <x-input name='semestre' class="md-4" wire:model='studentEdit.semestre' />
+                                <x-label for='semestre' value="Semestre" />
+                                <x-input name='semestre' class="md-4" wire:model='studentEdit.semestre'
+                                    class="w-full" />
 
-                            <x-label for='nip' value="Nip" />
-                            <x-input name='nip' class="md-4" wire:model='studentEdit.nip' />
+                                <x-label for='nip' value="Nip" />
+                                <x-input name='nip' class="md-4" wire:model='studentEdit.nip'
+                                    class="w-full" />
 
-                            <x-label for='correo' value="Correo" />
-                            <x-input name='correo' wire:model='studentEdit.correo' />
-                            <br>student
-                            <x-danger-button class="mt-2" wire:click="set('mEdit',false)">Cancelar</x-danger-button>
-                            <x-button class="mt-2">Actualizar</x-button>
-                        </form>
+                                <x-label for='correo' value="Correo" />
+                                <x-input name='correo' wire:model='studentEdit.correo' class="w-full" />
+                                <br>
+                                <x-danger-button class="mt-2"
+                                    wire:click="set('mEdit',false)">Cancelar</x-danger-button>
+                                <x-button class="mt-2">Actualizar</x-button>
+                            </form>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
         @endif
 

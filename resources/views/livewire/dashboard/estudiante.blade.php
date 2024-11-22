@@ -1,8 +1,8 @@
 <div>
     @if (Auth::guard('estudiantes')->check())
-        <div class="flex flex-row">
+        <div class="flex flex-row bg-blue-100">
             <aside
-                class="flex flex-col w-64 min-h-min px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+                class="flex flex-col w-64 min-h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
                 <a href="#">
                     <img class="w-auto h-7" src="https://portalinformatica.uaq.mx/asesorias/public/img/logos-fif-uaq.png"
                         alt="">
@@ -106,7 +106,7 @@
                                 <div class="card"
                                     style="width: 20rem; margin: 20px auto; border: 0px solid #ccc; border-radius: 10px;">
                                     <div class="card-body text-white">
-                                        <h5 class="card-title font-weight-bold text-2xl">Ajustes del Docente</h5>
+                                        <h5 class="card-title font-weight-bold text-2xl">Ajustes del Estudiante</h5>
                                         <p class="card-text text-lg">Aquí puedes gestionar la configuración de este
                                             docente.</p>
 
@@ -124,7 +124,7 @@
                                                 <button class="btn btn-sm btn-warning float-end">Restablecer</button>
                                             </li>
                                             <li class="list-group-item mb-4">
-                                                <strong>Eliminar Docente:</strong>
+                                                <strong>Eliminar Estudiante:</strong>
                                                 <button class="btn btn-sm btn-danger float-end">Eliminar</button>
                                             </li>
                                         </ul>
@@ -339,7 +339,7 @@
                 <!-- Modal para decir que te haz inscrito con éxito -->
                 @if ($cursoSeleccionado)
                     <div class="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-75">
-                        <div class="bg-gray-900 p-6 rounded-lg w-1/2">
+                        <div class="bg-gray-900 p-6 rounded-lg w-1/2 text-white">
                             <h2 class="text-xl font-bold mb-4">{{ $cursoSeleccionado->nombre }}</h2>
                             <p><strong>Docente:</strong> {{ $cursoSeleccionado->docente->nombre ?? 'No asignado' }}</p>
                             <p><strong>Cupo máximo:</strong> {{ $cursoSeleccionado->cupo_max }}</p>
@@ -350,7 +350,9 @@
                             <p><strong>Duración:</strong> {{ $cursoSeleccionado->duracion }}</p>
                             <p><strong>Fecha de inicio:</strong> {{ $cursoSeleccionado->fecha_inicio }}</p>
                             <p><strong>Fecha de Fin:</strong> {{ $cursoSeleccionado->fecha_fin }}</p>
-                            <p><strong>Descripción:</strong> {{ $cursoSeleccionado->descripción }}</p>
+                            <p><strong>Fecha de Pago:</strong> {{ $cursoSeleccionado->fecha_pago }}</p>
+                            <p><strong>Descripción:</strong> {{ $cursoSeleccionado->descripcion }}</p>
+                            <p><strong>Costo:</strong> ${{ $cursoSeleccionado->costo }}</p>
                             <button wire:click="closeInfo"
                                 class="mt-4 bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">
                                 Cerrar

@@ -325,7 +325,7 @@
                                     Editar Curso
                                 </span>
                                 <div class="mb-4 ml-4 mr-4">
-                                    <form class="max-w-sm text-white" wire:submit.prevent='enviar'>
+                                    <form class="max-w-sm text-white" wire:submit.prevent='update'>
                                         <x-label for="nombre" value='Nombre del curso' />
                                         <x-input id="nombre" wire:model='cursoEdit.nombre' type='text'
                                             class="w-full mt-2" />

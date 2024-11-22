@@ -107,16 +107,16 @@
             </tr>
             <tr>
                 <td>{{ $curso->nombre }}</td>
-                <td>$900.00 MXP</td>
+                <td>{{ $curso->costo }}</td>
             </tr>
             <tr>
                 <td><strong>--- TOTAL ---</strong></td>
-                <td><strong>$900.00 MXP</strong></td>
+                <td><strong>{{ $curso->costo }} MXP</strong></td>
             </tr>
         </table>
 
         <div class="total">
-            <p><strong>Fecha de Vencimiento:</strong> 2 Septiembre 2024</p>
+            <p><strong>Fecha de Vencimiento:</strong> {{ $curso->fecha_pago }}</p>
         </div>
 
         <div class="footer">

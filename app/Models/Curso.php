@@ -11,7 +11,7 @@ class Curso extends Model
 
     protected $guarded = [];
 
-    public function constancia()
+    public function constancias()
     {
         return $this->hasMany(Constancia::class);
     }
@@ -20,8 +20,10 @@ class Curso extends Model
     {
         return $this->belongsTo(Docente::class);
     }
+
     public function estudiantes()
     {
-        return $this->belongsToMany(Estudiante::class,  'estudiantes_cursos', 'curso_id', 'estudiante_id');
+        return $this->belongsToMany(Estudiante::class, 'estudiantes_cursos', 'curso_id', 'estudiante_id');
     }
+
 }

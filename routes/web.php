@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PDFController;
 use App\Livewire\Dashboard\Estudiante;
 use App\Livewire\Login\Estudiante as LoginEstudiante;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,6 @@ Route::middleware('guest')->group(function(){
   });
 
 
-
- 
   Route::get('/menu-estudiante', function(){
     return view('estudiante-dashboard');
     })->name('estudiante-dashboard');
@@ -44,4 +43,6 @@ Route::middleware('guest')->group(function(){
   Route::get('/menu-administrativo', function () {
       return view('administrativo-dashboard');
   })->name('administrativo-dashboard');
+
+  Route::get('/pdf-recibo-de-pago/{cursoID}/{estudianteID}', [PDFController::class, 'getReport'])->name('pdf-recibo');
 

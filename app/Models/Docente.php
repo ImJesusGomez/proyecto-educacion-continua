@@ -14,7 +14,7 @@ class Docente extends Authenticatable
 
     protected $guarded = [];
 
-    public function curso (){
+    public function cursos (){
         return $this->hasMany(Curso:: class);
     }
 

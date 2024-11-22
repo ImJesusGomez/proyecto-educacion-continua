@@ -15,9 +15,12 @@ class Estudiante extends Authenticatable
     protected $guarded = [];
 
     public function cursos(){
-        return $this->belongsToMany(Curso:: class, 'estudiantes_cursos', 'estudiante_id', 'curso_id');
+        return $this->belongsToMany(Curso::class);
     }
 
+    public function recibos(){
+      return $this->hasMany(Recibo::class);
+    }
     
     public function getAuthPassword()
     {

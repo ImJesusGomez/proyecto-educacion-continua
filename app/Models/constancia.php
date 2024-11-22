@@ -18,8 +18,4 @@ class Constancia extends Model
     public function curso(){
         return $this->belongsTo(Curso::class);
     }
-
-    public function docente(){
-        return $this->belongsTo(Docente::class);
-    }
 }

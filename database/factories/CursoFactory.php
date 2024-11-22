@@ -25,7 +25,9 @@ class CursoFactory extends Factory
             'duracion'=>fake()->numberBetween(30, 50),
             'fecha_inicio' => fake()->dateTimeBetween('-1 week', '+1 week'),
             'fecha_fin'=>fake()->dateTimeBetween('+12 week', '+15 week'),
+            'fecha_pago'=>fake()->dateTimeBetween('+4 week', '+4 week'),
             'descripcion'=>fake()->paragraph(),
+            'costo'=>fake()->numberBetween(900.00, 1000.00),
             'docente_id'=>fake()->numberBetween(1, 50),
         ];
     }

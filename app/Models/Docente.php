@@ -14,13 +14,14 @@ class Docente extends Authenticatable
 
     protected $guarded = [];
 
-    public function cursos (){
-        return $this->hasMany(Curso:: class);
+    public function curso()
+    {
+        return $this->hasMany(Curso::class);
     }
 
     public function getAuthPassword()
     {
-      return $this->nip;
+        return $this->nip;
     }
 
     public function setNipAttribute($value)
@@ -28,4 +29,3 @@ class Docente extends Authenticatable
         $this->attributes['nip'] = Hash::make($value);  // Usar Hash::make() en lugar de bcrypt
     }
 }
-

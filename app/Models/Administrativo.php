@@ -9,17 +9,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Administrativo extends Authenticatable
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = [];
+  protected $guarded = [];
 
-    public function getAuthPassword()
-    {
-      return $this->password;
-    }
-    
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);  // Usar Hash::make() en lugar de bcrypt
-    }
+  public function getAuthPassword()
+  {
+    return $this->password;
+  }
+
+  public function setPasswordAttribute($value)
+  {
+    $this->attributes['password'] = Hash::make($value);  // Usar Hash::make() en lugar de bcrypt
+  }
 }

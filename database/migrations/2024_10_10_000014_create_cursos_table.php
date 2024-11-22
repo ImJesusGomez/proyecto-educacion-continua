@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->integer('cupo_max');
-            $table->dateTime('horario');
+            $table->string('horario');
             $table->string('link');
             $table->integer('duracion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
+            $table->date('fecha_pago');
             $table->text('descripcion');
+            $table->decimal('costo', 6, 2);
 
             $table->foreignId('docente_id')->constrained('docentes', 'id')->onDelete('cascade');
 

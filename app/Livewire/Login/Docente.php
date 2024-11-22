@@ -8,7 +8,7 @@ use Livewire\Component;
 class Docente extends Component
 {
 
-    public $expediente, $nip;
+    public $expediente, $nip, $loginError;
     
     public function render()
     {
@@ -29,8 +29,19 @@ class Docente extends Component
             // Redirigir a la vista con los datos del docente
             return redirect()->route('docente-dashboard')->with('docente', $docente);
         } else {
-            session()->flash('error', 'Credenciales incorrectas.');
+            // Mostrar el modal de error
+            $this->loginError = true;
+
+            // Reiniciamos los valores
+            $this->reset('expediente', 'nip');
         }
     }
 
+    
+  /**
+  * Función para cerrar el modal
+  */
+  public function closeErrorModal() {
+        $this->loginError = false;
+  }
 }

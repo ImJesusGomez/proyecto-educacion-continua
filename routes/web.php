@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Constancia;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::middleware('guest')->group(function(){
+Route::middleware('guest')->group(function () {
   Route::get('/home', function () {
     return view('welcome');
   })->name('inicio');
 
   Route::get('/', function () {
-      return view('welcome');
+    return view('welcome');
   })->name('inicio');
 
 
@@ -21,11 +21,11 @@ Route::middleware('guest')->group(function(){
     return view('estudiante-login');
   })->name('estudiante-login');
 
-  Route::get('/login-docente', function(){
+  Route::get('/login-docente', function () {
     return view('docente-login');
   })->name('docente-login');
 
-  Route::get('/login-administrativo', function(){
+  Route::get('/login-administrativo', function () {
     return view('administrativo-login');
   })->name('administrativo-login');
   });
@@ -36,13 +36,13 @@ Route::middleware('guest')->group(function(){
     })->name('estudiante-dashboard');
 
 
-  Route::get('/menu-docente', function () {
-      return view('docente-dashboard');
-  })->name('docente-dashboard');
+Route::get('/menu-docente', function () {
+  return view('docente-dashboard');
+})->name('docente-dashboard');
 
-  Route::get('/menu-administrativo', function () {
-      return view('administrativo-dashboard');
-  })->name('administrativo-dashboard');
+Route::get('/menu-administrativo', function () {
+  return view('administrativo-dashboard');
+})->name('administrativo-dashboard');
 
   Route::get('/pdf-recibo-de-pago/{cursoID}/{estudianteID}', [PDFController::class, 'getReport'])->name('pdf-recibo');
 

@@ -11,6 +11,8 @@ class Estudiante extends Component
     public $expediente, $nip;
 
     public $loginError = false;
+
+    public $olvideNip = false;
     
     public function render()
     {
@@ -43,6 +45,13 @@ class Estudiante extends Component
     */
     public function closeErrorModal() {
             $this->loginError = false;
+    }
+
+        /**
+    * Función para cerrar el modal
+    */
+    public function closeOlvideNip() {
+            $this->olvideNip = false;
     }
 
 }

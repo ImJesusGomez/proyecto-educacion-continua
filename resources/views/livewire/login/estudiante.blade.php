@@ -34,7 +34,7 @@
                         <input type="password" name="nip" id="nip" wire:model='nip' placeholder="NIP">
                     </div>
                     <button type="submit">Iniciar Sesión</button>
-                    <p class="underline">Olvide mi NIP</p>
+                    <p class="underline cursor-pointer" wire:click="set('olvideNip', true)">Olvide mi NIP</p>
                     <a href="{{ route('inicio') }}">
                         <p class="underline">Volver al Inicio</p>
                     </a>
@@ -42,14 +42,35 @@
             </div>
         </div>
     </section>
-        <!-- Modal de error de inicio de sesión -->
-        @if ($loginError)
+    <!-- Modal de error de inicio de sesión -->
+    @if ($loginError)
         <div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
             <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
                 <h3 class="text-2xl font-semibold text-gray-900 mb-4">Error de inicio de sesión</h3>
                 <p class="text-gray-700 mb-4 text-base">Las credenciales ingresadas son incorrectas. Por favor,
                     inténtalo de nuevo.</p>
                 <button wire:click="closeErrorModal" class="px-4 py-2 bg-blue-500 text-white rounded-md w-24 text-xs">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    @endif
+    <!-- Modal de olvide mi nip-->
+    @if ($olvideNip)
+        <div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+            <div class="bg-gray-200 rounded-lg shadow-lg p-6 max-w-xl w-full">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Olvidé mi NIP</h3>
+                <p class="text-black mb-4 text-base">En caso de recordar el correo que registraste y las preguntas de
+                    recuperación, ingresa con tu expediente y correo para visualizar las preguntas de recuperación del
+                    NIP.</p>
+                <p class="text-black mb-4 text-base">Expediente: ___________________</p>
+                <p class="text-black mb-4 text-base">Correo: _______________________</p>
+                <p class="text-black mb-4 text-base">En caso contrario <span
+                        class="text-blue-400 underline">descarga</span>, llena el formato a mano y envíalo al
+                    correo <span class="text-blue-400 underline">serviciosescolares.nips@uaq.mx</span> anexando alguna
+                    de las
+                    siguientes identificaciones:</p>
+                <button wire:click="closeOlvideNip" class="px-4 py-2 bg-red-500 text-white rounded-md w-24 text-xs">
                     Cerrar
                 </button>
             </div>

@@ -34,7 +34,6 @@
                         <input type="password" name="nip" id="nip" wire:model='nip' placeholder="NIP">
                     </div>
                     <button type="submit">Iniciar Sesión</button>
-                    <p class="underline">Olvide mi NIP</p>
                     <a href="{{ route('inicio') }}">
                         <p class="underline">Volver al Inicio</p>
                     </a>

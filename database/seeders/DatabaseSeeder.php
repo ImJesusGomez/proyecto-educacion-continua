@@ -46,16 +46,17 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Estudiante::factory()->create([
-            'nombre' => 'Jorge Eduardo del Carmen Rodríguez',
+            'nombre' => 'Dennis Rogelio Medina Rodríguez',
             'expediente' => '319824',
             'nip' => '12345678',
         ]);
 
         Docente::factory()->create([
-            'nombre' => 'Jorge Dennis Correa Tepetate',
+            'nombre' => 'Jorge Eduardo del Carmen Arteaga ',
             'expediente' => '291961',
             'nip' => '12345678',
         ]);
+        
         Docente::factory()->create([
             'nombre' => 'Prueba Docente',
             'expediente' => '123456',
